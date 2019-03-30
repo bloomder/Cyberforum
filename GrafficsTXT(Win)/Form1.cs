@@ -9,7 +9,6 @@ namespace GrafficsTXT_Win_
 {
     public partial class Form1 : Form
     {
-
         string file, str,st;
         StreamReader sr;
         int count = 0, cou = 0;
