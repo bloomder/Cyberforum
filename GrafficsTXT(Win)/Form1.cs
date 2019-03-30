@@ -92,12 +92,12 @@ namespace GrafficsTXT_Win_
             //task.Wait();
             this.WindowState = FormWindowState.Maximized;
             button1.Location = new Point(0,0);
-            //-----------
+            //------------
             chart1.Location = new Point(10, 30);
             chart1.Width = this.Width - 50;
             chart1.Height = 300;
             chart1.Visible = true;
-            //------------
+            //-------------
             chart2.Location = new Point(10, 400);
             chart2.Width = this.Width - 50;
             chart2.Height = 300;
