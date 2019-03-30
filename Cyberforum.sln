@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinReadWrite(Win)", "BinRea
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MouseMove(Win)", "MouseMove(Win)\MouseMove(Win).csproj", "{ADEDFE17-236F-4BCB-8794-6306D31D0670}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrafficsTXT(Win)", "GrafficsTXT(Win)\GrafficsTXT(Win).csproj", "{D9DF688B-5616-49E1-9A7C-FBAE5C4A25E1}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Cyberforum\Cyberforum.projitems*{dd60acc6-d4dd-4854-83d5-a66bf2ee185b}*SharedItemsImports = 13
@@ -56,6 +58,10 @@ Global
 		{ADEDFE17-236F-4BCB-8794-6306D31D0670}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADEDFE17-236F-4BCB-8794-6306D31D0670}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ADEDFE17-236F-4BCB-8794-6306D31D0670}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9DF688B-5616-49E1-9A7C-FBAE5C4A25E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9DF688B-5616-49E1-9A7C-FBAE5C4A25E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9DF688B-5616-49E1-9A7C-FBAE5C4A25E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9DF688B-5616-49E1-9A7C-FBAE5C4A25E1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
