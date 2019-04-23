@@ -51,6 +51,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BindingSourceFilter", "Bind
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Matrix_Con", "Matrix_Con\Matrix_Con.csproj", "{9F848C40-5FDD-4F8F-9B9C-A39138B4DB54}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsole", "TestConsole\TestConsole.csproj", "{6A684266-C970-45DC-920A-35205A88903F}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Cyberforum\Cyberforum.projitems*{dd60acc6-d4dd-4854-83d5-a66bf2ee185b}*SharedItemsImports = 13
@@ -152,6 +154,10 @@ Global
 		{9F848C40-5FDD-4F8F-9B9C-A39138B4DB54}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F848C40-5FDD-4F8F-9B9C-A39138B4DB54}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F848C40-5FDD-4F8F-9B9C-A39138B4DB54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A684266-C970-45DC-920A-35205A88903F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A684266-C970-45DC-920A-35205A88903F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A684266-C970-45DC-920A-35205A88903F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A684266-C970-45DC-920A-35205A88903F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
