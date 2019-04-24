@@ -4,11 +4,13 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace GrafficsTXT_Win_
 {
     public partial class Form1 : Form
     {
+        double myX, myY;
         string file, str,st;
         StreamReader sr;
         int count = 0, cou = 0;
@@ -24,6 +26,17 @@ namespace GrafficsTXT_Win_
         {            
             InitializeComponent();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chart1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(myX.ToString() +"\r\n"+ myY.ToString());
+        }
+
         public void Graffics()
         {
             if(chart1.InvokeRequired)
@@ -103,6 +116,50 @@ namespace GrafficsTXT_Win_
             button1.Visible = true;
             this.MinimizeBox = false;
             this.MaximizeBox = false;
+            chart1.GetToolTipText += chart_GetToolTipText;
+        }
+        private void chart_GetToolTipText(object sender, ToolTipEventArgs e)
+        {
+            // Если текст в подсказке уже есть, то ничего не меняем.
+            if (!String.IsNullOrWhiteSpace(e.Text))
+                return;
+
+            Console.WriteLine(e.HitTestResult.ChartElementType);
+
+            switch (e.HitTestResult.ChartElementType)
+            {
+                case ChartElementType.DataPoint:
+                case ChartElementType.DataPointLabel:
+                case ChartElementType.Gridlines:
+                case ChartElementType.Axis:
+                case ChartElementType.TickMarks:
+                case ChartElementType.PlottingArea:
+                    // Первый ChartArea
+                    var area = chart1.ChartAreas[0];
+
+                    // Его относительные координаты (в процентах от размеров Chart)
+                    var areaPosition = area.Position;
+
+                    // Переводим в абсолютные
+                    var areaRect = new RectangleF(areaPosition.X * chart1.Width / 100, areaPosition.Y * chart1.Height / 100,
+                        areaPosition.Width * chart1.Width / 100, areaPosition.Height * chart1.Height / 100);
+
+                    // Область построения (в процентах от размеров area)
+                    var innerPlot = area.InnerPlotPosition;
+
+                    double x = area.AxisX.Minimum +
+                                (area.AxisX.Maximum - area.AxisX.Minimum) * (e.X - areaRect.Left - innerPlot.X * areaRect.Width / 100) /
+                                (innerPlot.Width * areaRect.Width / 100);
+                    double y = area.AxisY.Maximum -
+                                (area.AxisY.Maximum - area.AxisY.Minimum) * (e.Y - areaRect.Top - innerPlot.Y * areaRect.Height / 100) /
+                                (innerPlot.Height * areaRect.Height / 100);
+
+                    //Console.WriteLine("{0:F2} {1:F2}", x, y);
+                    myX = x;
+                    myY = y;
+                    e.Text = String.Format("{0:F2} {1:F2}", x, y);
+                    break;
+            }
         }
     }
 }

@@ -10,30 +10,22 @@ namespace TestConsole
         
         static void Main(string[] args)
         {
-            m1: { }
-            Console.Write("Введите размерность одномерного массива: ");
-            try
+            int[][] A = new int[][] { new int[] { 1, 2, 3, 4 }, new int[] { 5, 6, 7, 8, 9, 10 }, new int[] { 11, 12, 13 }, new int[] { 14, 15 } };
+            int b = A.Length;            
+            int[] C = new int[b];
+            for (int i = 0; i < b; i++)
             {
-                razm = int.Parse(Console.ReadLine());
-                if(razm<2)
+                C[i] = A[i].Length;
+            }
+            int[,] a = new int[,] { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 }};
+            b = a.GetUpperBound(0)+1;
+            int[] c = new int[b];
+            for (int i = 0; i < b; i++)
+            {
+                for (int j = 0; j < a.Length/(b); j++)
                 {
-                    Console.WriteLine("Размерность массива, должна быть больше 1");
-                    goto m1;
+                    c[i] += a[i,j];
                 }
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine(ex);
-                goto m1;
-            }
-            mass = new double[razm];
-            Console.WriteLine("Ваш массив:");
-            for (int j = 0; j < razm; j++)
-            {//-15.6, 53.3
-                m2: { }
-                mass[j] = rand.Next(-15,53)+(rand.Next(1,99)/(double)100);
-                if ((mass[j] < 15.6) && (mass[j] > 53.3)) { goto m2; }
-                Console.Write("{0}\t", mass[j]);
             }
             Console.ReadKey();
         }

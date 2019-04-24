@@ -79,6 +79,7 @@
             title1.Text = "Ось Y";
             this.chart1.Titles.Add(title1);
             this.chart1.Visible = false;
+            this.chart1.Click += new System.EventHandler(this.chart1_Click);
             // 
             // chart2
             // 
