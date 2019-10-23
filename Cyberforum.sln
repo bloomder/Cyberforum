@@ -57,6 +57,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Windows Presentation Founda
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Class_Book_Console", "Class_Book_Console\Class_Book_Console.csproj", "{853F1B5C-125D-40A4-B9D1-74EB9AE61CAB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileSystemWatcher_Console", "FileSystemWatcher_Console\FileSystemWatcher_Console.csproj", "{C6D17DB7-5AF1-4EB9-A67F-BF5A282C31F7}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Cyberforum\Cyberforum.projitems*{dd60acc6-d4dd-4854-83d5-a66bf2ee185b}*SharedItemsImports = 13
@@ -158,6 +160,10 @@ Global
 		{853F1B5C-125D-40A4-B9D1-74EB9AE61CAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{853F1B5C-125D-40A4-B9D1-74EB9AE61CAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{853F1B5C-125D-40A4-B9D1-74EB9AE61CAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6D17DB7-5AF1-4EB9-A67F-BF5A282C31F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6D17DB7-5AF1-4EB9-A67F-BF5A282C31F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6D17DB7-5AF1-4EB9-A67F-BF5A282C31F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6D17DB7-5AF1-4EB9-A67F-BF5A282C31F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -186,6 +192,7 @@ Global
 		{D012FFC3-18CF-415D-9563-B9ADA0DB19C0} = {3A751D4C-49C0-4586-B396-9A5BAF9A0A75}
 		{9BF88DCA-6AF9-46CB-802F-ADE3A5000F1F} = {6B286947-6CFF-42F2-B640-400631D81118}
 		{853F1B5C-125D-40A4-B9D1-74EB9AE61CAB} = {6B286947-6CFF-42F2-B640-400631D81118}
+		{C6D17DB7-5AF1-4EB9-A67F-BF5A282C31F7} = {6B286947-6CFF-42F2-B640-400631D81118}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {02716584-6C9C-4D21-A322-D78DCC818E88}
