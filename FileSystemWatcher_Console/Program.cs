@@ -1,62 +1,122 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 
 namespace FileSystemWatcher_Console
 {
     class Program
     {
-        static FileSystemWatcher watcher = new FileSystemWatcher();
-        static List<String> list = new List<string>();
+        static bool a = true;
+        static List<String> list_folder = new List<string>();
+        static List<String> list_files = new List<string>();
+        static List<FileSystemWatcher> list_fsw = new List<FileSystemWatcher>();
+        static FileSystemWatcher fsw;
+        static FileStream fs;
+        static int ib = 0; 
         public static void Main()
-        {
-            Console.WriteLine("Ожидание активности....");
-            //watcher.SynchronizingObject = this;
+        {            
+            Thread th = new Thread(Method);
+            //sw = new StreamWriter(@"C:\Result\result.txt", false, Encoding.Default);
             
-
-
-            watcher.Path = Path.GetDirectoryName(@"C:\Windows"); //не забудьте поменять путь
-
-            //AddEvents();
-            Console.WriteLine($"В системе {list.Count} папок");
+            th.Start();
             Console.ReadLine();
         }
-        public void GetNames(String path)
+        static void Method()
         {
-            DirectoryInfo dir = new DirectoryInfo(path);
+            Console.WriteLine("Поток запущен");
+            List<String> list = new List<string>();
+            list.Add(@"C:\Test");
+            list.Add(@"C:\Users\bloom\Downloads");
+            list.Add(@"C:\Users\bloom\OneDrive\Рабочий стол");
+            foreach (var item in list)
+            {
+                ReadDir(item);
+            }
+            Console.WriteLine("Поток завершен");
+            Console.ReadLine();
+        }
+        static void ReadDir(string path)
+        {
+            var dir = new DirectoryInfo(path);
+            fsw = new FileSystemWatcher();
+            SettingsFSW(path);
+            list_fsw.Add(fsw);
+            list_folder.Add(path);
+            //Console.WriteLine(path);
+            foreach (var item in dir.GetFiles())
+            {
+                list_files.Add(item.FullName);
+            }
             foreach (var item in dir.GetDirectories())
             {
-                list.Add(item.FullName);
+                ReadDir(item.FullName);
             }
         }
-        public static void AddEvents()
+
+        private static void SettingsFSW(string path)
         {
-            watcher.Filter = "*.*";
-            watcher.NotifyFilter = NotifyFilters.LastWrite | NotifyFilters.FileName | NotifyFilters.Size;
-            watcher.Deleted += new System.IO.FileSystemEventHandler(OnDelete);
-            watcher.Renamed += new System.IO.RenamedEventHandler(OnRenamed);
-            watcher.Changed += new System.IO.FileSystemEventHandler(OnChanged);
-            watcher.Created += new System.IO.FileSystemEventHandler(OnCreate);
-            watcher.EnableRaisingEvents = true;
+            fsw.Path = path;
+            fsw.NotifyFilter = NotifyFilters.LastAccess | NotifyFilters.LastWrite | NotifyFilters.FileName | NotifyFilters.DirectoryName;
+            fsw.Filter = "*.*";
+            //fsw.Changed += OnChanged;
+            fsw.Created += OnCreated;
+            fsw.Deleted += OnDeleted;
+            fsw.Renamed += OnRenamed;
+            fsw.EnableRaisingEvents = true;
         }
-        public static void OnChanged(object source, FileSystemEventArgs e)
+
+        private static void OnRenamed(object sender, RenamedEventArgs e)
         {
-            Console.WriteLine("Файл: {0} {1}", e.FullPath, e.ChangeType.ToString());
+            Console.WriteLine($"File: {e.OldName} переименован в {e.Name}");
+            CopyFile(e.FullPath, e.Name, e.ChangeType.ToString());
         }
-        public static void OnRenamed(object source, RenamedEventArgs e)
+
+        private static void OnDeleted(object sender, FileSystemEventArgs e)
         {
-            Console.WriteLine("Файл переименован из {0} в {1}", e.OldName, e.FullPath);
+            Console.WriteLine($"File: {e.Name} удален");
         }
-        public static void OnDelete(object source, FileSystemEventArgs e)
+
+        private static void OnCreated(object sender, FileSystemEventArgs e)
         {
-            Console.WriteLine("Файл: {0} удален", e.FullPath);
+            Console.WriteLine($"File: {e.Name} создан");
+            CopyFile(e.FullPath, e.Name, e.ChangeType.ToString());
         }
-        public static void OnCreate(object source, FileSystemEventArgs e)
+
+        static bool CheckFile(string path)
         {
-            Console.WriteLine("Файл: {0} создан", e.FullPath);
+            return true;
+        }
+        private static void OnChanged(object source, FileSystemEventArgs e)
+        {
+            // Specify what is done when a file is changed, created, or deleted.
+            Console.WriteLine($"File: {e.FullPath} {e.ChangeType}");
+            if(e.ChangeType.ToString()=="Created")
+            {
+                Console.WriteLine("Условие выполнено");
+            }
+        }
+        static void CopyFile(string path, string name, string txt)
+        {
+            ib++;
+            //sw= new StreamWriter(@"C:\Result\result.txt", false, Encoding.Default);
+            string text = ib.ToString() +") " + path + " " + txt+" "+DateTime.Now.ToString();
+        m1: { }
+            try
+            {
+                File.Copy(path, @"C:\Result");
+                Console.WriteLine("File copy");
+            }
+            catch(Exception ex)
+            {
+                Thread.Sleep(50);
+                Console.WriteLine("File no copy");
+                goto m1;
+            }
+            File.Move((string)(@"C:\Result\" + "name"), (string)(ib.ToString() + ".q"));
+            //sw.WriteLine(text);
+            //sw.Close();
         }
     }
 }
