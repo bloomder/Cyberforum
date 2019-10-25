@@ -120,24 +120,25 @@ namespace FileSystemWatcher_WF
 
         private void OnRenamed(object sender, RenamedEventArgs e)
         {
-            /*
+            
             count++;
             str_txt = count + ") Папка: " + e.FullPath + "\r\n" + "Файл: " + e.OldName + " переименован в " + e.Name + " " + DateTime.Now + ".\r\n";
             fwc.OpenText();
             fwc.WriteText(str_txt);
             fwc.CloseText();
-            */
+            
             int yp = 0;
         m1: { }
             try
             {
-                /*
-                File.Copy(e.FullPath, (string)(@"C:\Result\"+count.ToString()+".q"));
+                
+                File.Copy(e.FullPath, (string)(@"C:\Result\"+e.Name));
+                
                 str_txt = "Удалось сохранить\r\n";
                 fwc.OpenText();
                 fwc.WriteText(str_txt);
                 fwc.CloseText();
-                */
+                
                 SendMail(smtp,from_mail,pass_mail, to_mail,"Файл переименован", (string)(e.OldFullPath+"\r\n"+e.FullPath.ToString()),e.FullPath.ToString());
                 //SendMail("smtp.yandex.ru", "почта", "пароль", "получатель", "заголовок", "текст");
             }
@@ -147,12 +148,10 @@ namespace FileSystemWatcher_WF
                 if (yp != 10) { goto m1; }
                 else
                 {
-                    /*
                     str_txt = "Не удалось сохранить\r\n";
                     fwc.OpenText();
                     fwc.WriteText(str_txt);
                     fwc.CloseText();
-                    */
                     SendMail(smtp, from_mail, pass_mail, to_mail, "Не получилось отправить файл", e.FullPath.ToString());
                 }
             }
@@ -161,35 +160,29 @@ namespace FileSystemWatcher_WF
         private void OnDeleted(object sender, FileSystemEventArgs e)
         {
             //count++;            
-            str_txt = "Папка: " + e.FullPath + "\r\n" + "Файл: " + e.Name + " удален." + DateTime.Now +"\r\n";
-            /*
+            str_txt = "Папка: " + e.FullPath + "\r\n" + "Файл: " + e.Name + " удален." + DateTime.Now +"\r\n";            
             fwc.OpenText();
             fwc.WriteText(str_txt);
-            fwc.CloseText();    
-            */
+            fwc.CloseText();
             SendMail(smtp, from_mail, pass_mail, to_mail, "Файл Удален", e.FullPath.ToString());
         }
 
         private void OnCreated(object sender, FileSystemEventArgs e)
         {
-            /*
             count++;
             str_txt = count + ") Папка: " + e.FullPath + "\r\n" + "Файл: " + e.Name + " создан." + DateTime.Now + "\r\n";
             fwc.OpenText();
             fwc.WriteText(str_txt);
             fwc.CloseText();
-            */
             int yp = 0;
         m1: { }
             try
             {
-                /*
                 File.Copy(e.FullPath, (string)(@"C:\Result\" + count.ToString() + ".q"));
                 str_txt = "Удалось сохранить\r\n";
                 fwc.OpenText();
                 fwc.WriteText(str_txt);
                 fwc.CloseText();
-                */
                 SendMail(smtp, from_mail, pass_mail, to_mail, "Файл создан", e.FullPath.ToString(), e.FullPath.ToString());
             }
             catch (Exception ex)
@@ -198,12 +191,10 @@ namespace FileSystemWatcher_WF
                 if (yp != 10) { goto m1; }
                 else
                 {
-                    /*
                     str_txt = "Не удалось сохранить\r\n";
                     fwc.OpenText();
                     fwc.WriteText(str_txt);
                     fwc.CloseText();
-                    */
                     SendMail(smtp, from_mail, pass_mail, to_mail, "Не получилось отправить файл", e.FullPath.ToString());
                 }
             }
