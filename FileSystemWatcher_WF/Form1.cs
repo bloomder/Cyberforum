@@ -23,8 +23,8 @@ namespace FileSystemWatcher_WF
         int count = 0;
         int flag = 0;
         string smtp= "smtp.mail.ru";
-        string from_mail= "ptrivnv89@mail.ru";
-        string pass_mail="Roketa2020";
+        string from_mail= "mchs@112pozh.ru";
+        string pass_mail= "dqz-7sf-a9w-kcy@fgfftrhbegrt";
         string to_mail="";
         string header="";
         string message="";
