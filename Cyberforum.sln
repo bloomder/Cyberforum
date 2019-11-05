@@ -69,6 +69,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mutex_Console", "Mutex_Cons
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thread_Textboxs", "Thread_Textboxs\Thread_Textboxs.csproj", "{43059F65-F6A9-46BC-BF63-66EB05DEC752}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Locations_Controls", "Locations_Controls\Locations_Controls.csproj", "{D90CC8C4-2D4A-4459-9086-A6FB06B5B485}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Cyberforum\Cyberforum.projitems*{dd60acc6-d4dd-4854-83d5-a66bf2ee185b}*SharedItemsImports = 13
@@ -194,6 +196,10 @@ Global
 		{43059F65-F6A9-46BC-BF63-66EB05DEC752}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43059F65-F6A9-46BC-BF63-66EB05DEC752}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43059F65-F6A9-46BC-BF63-66EB05DEC752}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D90CC8C4-2D4A-4459-9086-A6FB06B5B485}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D90CC8C4-2D4A-4459-9086-A6FB06B5B485}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D90CC8C4-2D4A-4459-9086-A6FB06B5B485}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D90CC8C4-2D4A-4459-9086-A6FB06B5B485}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -228,6 +234,7 @@ Global
 		{FF06A72A-29AE-4A5D-8505-9F7DF4EF0EBF} = {6B286947-6CFF-42F2-B640-400631D81118}
 		{5797A1A9-F486-4D33-9FA9-FCF98DCCE88D} = {6B286947-6CFF-42F2-B640-400631D81118}
 		{43059F65-F6A9-46BC-BF63-66EB05DEC752} = {3A751D4C-49C0-4586-B396-9A5BAF9A0A75}
+		{D90CC8C4-2D4A-4459-9086-A6FB06B5B485} = {3A751D4C-49C0-4586-B396-9A5BAF9A0A75}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {02716584-6C9C-4D21-A322-D78DCC818E88}
